@@ -4,7 +4,7 @@ export default function Footer() {
       className="flex items-center justify-center p-4"
       style={{ backgroundColor: '#00A9FF' }}
     >
-      <p className="text-sm text-white">© 2023 Pluga. All rights reserved.</p>
+      <p className="text-sm text-white">© 2025 Pluga. All rights reserved.</p>
     </footer>
   )
 }

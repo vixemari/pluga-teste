@@ -42,13 +42,18 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
     loadApps()
   }, [])
-  const totalPages = Math.ceil(apps.length / perPage)
+
+  useEffect(() => {
+    setPage(1)
+  }, [search])
 
   const filteredApps = apps.filter(app =>
     app.name.toLowerCase().includes(search.toLowerCase())
   )
 
   const appsPaginated = filteredApps.slice((page - 1) * perPage, page * perPage)
+
+  const totalPages = Math.ceil(filteredApps.length / perPage)
 
   const value = {
     apps,
