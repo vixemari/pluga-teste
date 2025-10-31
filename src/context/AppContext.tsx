@@ -1,4 +1,11 @@
-import { createContext, useState, useEffect, useMemo, ReactNode } from 'react'
+import {
+  createContext,
+  useState,
+  useEffect,
+  useMemo,
+  useRef,
+  ReactNode,
+} from 'react'
 import { fetchApps } from '../api/appService'
 import type { AppData } from '../types/app'
 
@@ -14,10 +21,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [apps, setApps] = useState<AppData[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
+  const hasFetched = useRef<boolean>(false)
 
   useEffect(() => {
+    if (hasFetched.current) {
+      return
+    }
+
     const loadApps = async () => {
       setLoading(true)
+      hasFetched.current = true
       try {
         const data = await fetchApps()
         setApps(data)

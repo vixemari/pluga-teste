@@ -1,5 +1,5 @@
 export interface AppData {
-  id: number
+  id: string
   name: string
   color: string
   icon: string
