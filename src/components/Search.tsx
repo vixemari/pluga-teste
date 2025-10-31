@@ -1,17 +1,32 @@
+import { useState, useEffect } from 'react'
 import { Input } from '@/components/ui/input'
 
 interface SearchProps {
   value: string
   onChange: (v: string) => void
+  delay?: number
 }
 
-export function Search({ value, onChange }: SearchProps) {
+export function Search({ value, onChange, delay = 300 }: SearchProps) {
+  const [searchTerm, setSearchTerm] = useState(value)
+
+  useEffect(() => {
+    setSearchTerm(value)
+  }, [value])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onChange(searchTerm)
+    }, delay)
+
+    return () => clearTimeout(timer)
+  }, [searchTerm, onChange, delay])
+
   return (
     <Input
       placeholder="Buscar ferramentas..."
-      value={value}
-      onChange={e => onChange(e.target.value)}
-      className="w-full p-3 rounded-lg focus:ring-2 focus:ring-blue-500"
+      value={searchTerm}
+      onChange={e => setSearchTerm(e.target.value)}
     />
   )
 }

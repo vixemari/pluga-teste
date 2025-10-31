@@ -6,11 +6,14 @@ interface AppContextProps {
   apps: AppData[]
   loading: boolean
   error: string | null
-  appsPaginated: () => AppData[]
+  appsPaginated: AppData[]
   currentPage: number
   totalPages: number
   setPage: (page: number) => void
   perPage: number
+  search: string
+  setSearch: (search: string) => void
+  filteredApps: AppData[]
 }
 
 export const AppContext = createContext<AppContextProps>({} as AppContextProps)
@@ -20,6 +23,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const [page, setPage] = useState(1)
+  const [search, setSearch] = useState('')
 
   const perPage = 12
 
@@ -40,10 +44,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [])
   const totalPages = Math.ceil(apps.length / perPage)
 
-  const appsPaginated = () => {
-    const start = (page - 1) * perPage
-    return apps.slice(start, start + perPage)
-  }
+  const filteredApps = apps.filter(app =>
+    app.name.toLowerCase().includes(search.toLowerCase())
+  )
+
+  const appsPaginated = filteredApps.slice((page - 1) * perPage, page * perPage)
 
   const value = {
     apps,
@@ -54,6 +59,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     totalPages,
     setPage,
     perPage,
+    search,
+    setSearch,
+    filteredApps,
   }
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>

@@ -3,9 +3,11 @@ import { useContext } from 'react'
 import { AppCard } from '../components/Card'
 import { AppContext } from '../context/AppContext'
 import Pagination from '../components/Pagination'
+import { Search } from '../components/Search'
 
 export default function Home() {
-  const { appsPaginated, loading, error, totalPages } = useContext(AppContext)
+  const { appsPaginated, loading, error, totalPages, search, setSearch } =
+    useContext(AppContext)
 
   if (loading) {
     return (
@@ -27,12 +29,11 @@ export default function Home() {
     )
   }
 
-  const paginatedApps = appsPaginated()
-
   return (
     <div className="max-w-6xl mx-auto p-6">
+      <Search value={search} onChange={setSearch} />
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-6">
-        {paginatedApps.map(app => (
+        {appsPaginated.map(app => (
           <AppCard key={app.id} app={app} onClick={() => {}} />
         ))}
       </div>
