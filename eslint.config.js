@@ -50,6 +50,7 @@ export default [
       'react/jsx-uses-vars': 'error',
 
       // TypeScript rules
+      'no-unused-vars': 'off', // Turn off base rule as it can report incorrect errors
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
