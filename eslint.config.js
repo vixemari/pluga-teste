@@ -43,12 +43,6 @@ export default [
       // Accessibility rules
       ...jsxA11y.configs.recommended.rules,
 
-      // React Refresh rules
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
-
       // React specific
       'react/react-in-jsx-scope': 'off', // Not needed with new JSX transform
       'react/prop-types': 'off', // Using TypeScript for prop validation

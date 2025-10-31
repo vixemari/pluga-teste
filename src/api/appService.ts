@@ -1,10 +1,11 @@
 import axios from 'axios'
+import { AppData } from '../types/app'
 
 const API_URL = 'https://pluga.co/ferramentas_search.json'
 
-export const fetchApps = async () => {
+export const fetchApps = async (): Promise<AppData[]> => {
   try {
-    const response = await axios.get(API_URL)
+    const response = await axios.get<AppData[]>(API_URL)
     return response.data
   } catch (error) {
     // eslint-disable-next-line no-console
