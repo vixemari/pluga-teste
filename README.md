@@ -100,7 +100,7 @@ npm install
 npm run dev
 ```
 
-A aplicação estará disponível em `https://pluga-teste-ggq874twb-vixemaris-projects.vercel.app/`
+A aplicação estará disponível em https://pluga-teste-ggq874twb-vixemaris-projects.vercel.app/
 
 ### 4. Execute os testes
 
@@ -242,27 +242,6 @@ useEffect(() => {
 - ✅ **Qualidade**: 0 erros ESLint, TypeScript rigoroso
 - ✅ **Performance**: Loading states, debounce, otimizações
 
-## 🔮 Melhorias Futuras
-
-### Performance
-
-- [ ] React Query para cache inteligente
-- [ ] Virtual scrolling para listas grandes
-- [ ] Service Worker para funcionalidade offline
-
-### Funcionalidades
-
-- [ ] Filtros por categoria
-- [ ] Favoritos persistentes
-- [ ] Histórico com timestamps
-- [ ] Compartilhamento de apps
-
-### Qualidade
-
-- [ ] Testes E2E com Playwright
-- [ ] Coverage reports
-- [ ] CI/CD pipeline
-- [ ] Error monitoring (Sentry)
 
 ## 👨‍💻 Desenvolvedor
 
