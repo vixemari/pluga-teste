@@ -84,7 +84,7 @@ src/
 ### 1. Clone o repositório
 
 ```bash
-git clone <repository-url>
+git clone git@github.com:vixemari/pluga-teste.git
 cd pluga-test
 ```
 
@@ -100,7 +100,7 @@ npm install
 npm run dev
 ```
 
-A aplicação estará disponível em `http://localhost:5173`
+A aplicação estará disponível em `https://pluga-teste-ggq874twb-vixemaris-projects.vercel.app/`
 
 ### 4. Execute os testes
 
