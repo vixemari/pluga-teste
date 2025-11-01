@@ -37,6 +37,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       setLoading(true)
       try {
         const data = await fetchApps()
+        data.sort((a, b) => a.name.localeCompare(b.name))
         setApps(data)
       } catch (err) {
         setError((err as Error).message)
