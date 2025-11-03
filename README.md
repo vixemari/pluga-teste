@@ -162,27 +162,6 @@ npm run test:run
 
 > **Nota**: Testes foram mantidos simples e focados no essencial para demonstrar capacidade de aprendizado em testing, sem complexidade desnecessária.## 🎨 Features de UX
 
-### Loading States Inteligentes
-
-- **Skeleton Components**: Durante carregamento inicial
-- **Image Loading**: Spinner individual para cada imagem
-- **Error Fallbacks**: Estados elegantes para falhas
-
-### Performance Otimizada
-
-- **Debounce Search**: Reduz chamadas API em ~90%
-- **Paginação**: Evita carregamento excessivo de dados
-- **Lazy Loading**: Imagens carregadas conforme necessário
-
-### Design Responsivo
-
-```css
-/* Mobile First */
-grid-cols-2          /* 2 colunas no mobile */
-sm:grid-cols-3       /* 3 colunas no tablet */
-md:grid-cols-4       /* 4 colunas no desktop */
-```
-
 ## 🔧 Configuração de Desenvolvimento
 
 ### ESLint + Prettier
@@ -209,45 +188,6 @@ Configuração strict habilitada para máxima type safety:
   "strict": true,
   "noUnusedLocals": true,
   "noUnusedParameters": true
-}
-```
-
-## 📊 Principais Conceitos Implementados
-
-### 1. **Gerenciamento de Estado (Context API)**
-
-```tsx
-// Estado global centralizado
-const AppContext = createContext<AppContextProps>()
-
-// Computed values derivados
-const filteredApps = apps.filter(app =>
-  app.name.toLowerCase().includes(search.toLowerCase())
-)
-```
-
-### 2. **Debounced Search**
-
-```tsx
-// Otimização de performance
-useEffect(() => {
-  const timer = setTimeout(() => onChange(searchTerm), 300)
-  return () => clearTimeout(timer)
-}, [searchTerm])
-```
-
-### 3. **Loading States**
-
-```tsx
-// UX durante carregamento
-{
-  loading && <LoadingCard />
-}
-{
-  error && <ErrorCard />
-}
-{
-  apps.length === 0 && <EmptyState />
 }
 ```
 
