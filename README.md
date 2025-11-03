@@ -9,23 +9,27 @@ Uma aplicação React moderna para explorar e descobrir ferramentas integradas �
 
 ## 📱 Demo
 
-🌐 **[Ver Demo ao Vivo](https://pluga-teste.vercel.app/)** 
+🌐 **[Ver Demo ao Vivo](https://pluga-teste.vercel.app/)**
 
 ## 📸 Interface da Aplicação
 
 ### 🖥️ **Tela Principal**
+
 <img width="1419" height="925" alt="image" src="https://github.com/user-attachments/assets/82e324c4-3bac-4399-8d1f-022566adaa82" />
 *Vista geral da aplicação com grid de apps, busca e paginação*
 
 ### 📱 **Responsividade Mobile**
+
 <img width="383" height="825" alt="image" src="https://github.com/user-attachments/assets/7c5db243-a11a-4f80-9578-78448b10f123" /><br/>
-*Layout adaptado para dispositivos móveis*
+_Layout adaptado para dispositivos móveis_
 
 ### ⏳ **Loading States**
+
 <img width="1426" height="927" alt="image" src="https://github.com/user-attachments/assets/2b647d1f-4abe-4fa7-b5bf-a42c611fe030" />
 *Skeleton components durante carregamento para melhor UX*
 
 ### 🪟 **Modal de Detalhes**
+
 <img width="1426" height="927" alt="image" src="https://github.com/user-attachments/assets/5d826457-b882-48e1-bcf9-d50c13ea7046" />
 *Modal exibindo informações detalhadas e histórico de visualizações*
 
@@ -33,11 +37,46 @@ Uma aplicação React moderna para explorar e descobrir ferramentas integradas �
 
 - **🔍 Busca Inteligente**: Search com debounce para otimização de performance
 - **📄 Paginação**: Navegação fluida com 12 apps por página
+- **🔗 URL Persistente**: Busca e página mantidas em query params (compartilháveis!)
 - **⏳ Loading States**: Skeleton components durante carregamento
 - **📱 Design Responsivo**: Layout otimizado para mobile, tablet e desktop
 - **🎨 Temas Dinâmicos**: Cores de fundo baseadas na identidade visual de cada app
 - **💾 Histórico Local**: Apps recentemente visualizados salvos no LocalStorage
 - **♿ Acessibilidade**: Componentes seguem padrões ARIA
+
+## ✨ Destaque: Persistência de Estado na URL
+
+### 🔗 Query Parameters para Melhor UX
+
+A aplicação implementa **persistência de estado na URL** usando query parameters, oferecendo uma experiência profissional e compartilhável:
+
+```bash
+# Exemplos de URLs
+https://pluga-teste.vercel.app/?search=slack        # Busca por "Slack"
+https://pluga-teste.vercel.app/?page=2              # Página 2
+https://pluga-teste.vercel.app/?search=trello&page=3 # Busca "Trello" na página 3
+```
+
+#### 🎯 **Benefícios**
+
+| Funcionalidade                | Descrição                                        |
+| ----------------------------- | ------------------------------------------------ |
+| 🔄 **State Persistente**      | Recarregar a página mantém busca e paginação     |
+| 🔗 **URLs Compartilháveis**   | Envie links com buscas específicas para colegas  |
+| 🔙 **Navegação do Browser**   | Botões voltar/avançar funcionam perfeitamente    |
+| ⭐ **Favoritos Inteligentes** | Salve buscas frequentes nos favoritos            |
+| 📱 **Deep Linking**           | Acesso direto a estados específicos da aplicação |
+
+#### 💡 **Implementação Técnica**
+
+#### 📖 **Comportamentos Inteligentes**
+
+- ✅ **Busca vazia**: Remove `?search=` da URL automaticamente
+- ✅ **Página 1**: Remove `?page=1` (é o padrão)
+- ✅ **Nova busca**: Reseta para página 1 automaticamente
+- ✅ **URL limpa**: Volta ao estado inicial quando sem filtros
+
+> 📚 **[Documentação completa sobre Query Params](./QUERY_PARAMS.md)**
 
 ## � Tecnologias Utilizadas
 
@@ -78,18 +117,22 @@ src/
 │   ├── ErrorCard.tsx    # Tratamento de erros
 │   └── ui/              # Design system (shadcn/ui)
 ├── context/
-│   └── AppContext.tsx   # Estado global da aplicação
+│   └── AppContext.tsx   # Estado global com URL sync
 ├── api/
 │   └── appService.ts    # Serviços HTTP e integração API
 ├── types/
 │   └── app.ts          # Interfaces TypeScript
 ├── Pages/
 │   └── Home.tsx        # Página principal
-└── test/               # Suíte de testes básicos (6 testes)
-    ├── AppCard.test.tsx
-    ├── Search.test.tsx
-    ├── appService.test.ts
-    └── setup.ts
+├── test/               # Suíte de testes (9 testes)
+│   ├── AppCard.test.tsx
+│   ├── Search.test.tsx
+│   ├── appService.test.ts
+│   ├── urlParams.test.ts  # 🆕 Testes de Query Params
+│   └── setup.ts
+└── docs/               # Documentação adicional
+    ├── QUERY_PARAMS.md    # 🆕 Doc de URL persistence
+    └── images/            # Screenshots da interface
 ```
 
 ## 🛠️ Instalação e Configuração
@@ -118,7 +161,6 @@ npm install
 npm run dev
 ```
 
-
 ### 4. Execute os testes
 
 ```bash
@@ -146,11 +188,12 @@ npm run build
 
 ## 🧪 Testes
 
-O projeto inclui **6 testes básicos** para demonstrar conhecimento em testing:
+O projeto inclui **9 testes** para demonstrar conhecimento em testing:
 
 - ✅ **AppCard**: Renderização e interações do usuário
 - ✅ **Search**: Input funcionando corretamente
 - ✅ **API**: Integração básica com serviços externos
+- ✅ **URL Params**: Persistência de estado na URL
 
 ```bash
 # Executar testes
@@ -160,9 +203,21 @@ npm test
 npm run test:run
 ```
 
-> **Nota**: Testes foram mantidos simples e focados no essencial para demonstrar capacidade de aprendizado em testing, sem complexidade desnecessária.## 🎨 Features de UX
+**Resultados**:
 
-## 🔧 Configuração de Desenvolvimento
+```
+✓ src/test/urlParams.test.ts (3 tests)    # 🆕 Query Params
+✓ src/test/appService.test.ts (1 test)    # API Service
+✓ src/test/Search.test.tsx (3 tests)       # Search Component
+✓ src/test/AppCard.test.tsx (2 tests)      # Card Component
+
+Test Files  4 passed (4)
+Tests       9 passed (9)
+```
+
+> **Nota**: Testes foram mantidos simples e focados no essencial para demonstrar capacidade de aprendizado em testing, sem complexidade desnecessária.
+
+## 🎨 Features de UX## 🔧 Configuração de Desenvolvimento
 
 ### ESLint + Prettier
 
@@ -194,21 +249,24 @@ Configuração strict habilitada para máxima type safety:
 ## 🚦 Status do Projeto
 
 - ✅ **Funcionalidades Core**: Busca, paginação, modal
+- ✅ **Query Params**: Persistência de estado na URL (compartilhável!)
 - ✅ **Responsividade**: Mobile, tablet, desktop
-- ✅ **Testes**: 6 testes básicos (diferencial para júnior)
+- ✅ **Testes**: 9 testes incluindo URL params
 - ✅ **Qualidade**: 0 erros ESLint, TypeScript rigoroso
 - ✅ **Performance**: Loading states, debounce, otimizações
-
+- ✅ **Deploy**: Vercel com CI/CD automático
 
 ## 👨‍💻 Desenvolvedor
 
 Desenvolvido com ❤️ para demonstrar competências em:
 
-- React moderno com hooks e Context
+- React moderno com hooks e Context API
 - TypeScript para type safety
+- Persistência de estado com Query Parameters
 - Testes automatizados com React Testing Library
 - Design responsivo com Tailwind CSS
 - Performance e otimização de UX
+- Deploy automatizado na Vercel
 
 ## 📄 Licença
 

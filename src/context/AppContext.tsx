@@ -26,8 +26,20 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [apps, setApps] = useState<AppData[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
-  const [page, setPage] = useState(1)
-  const [search, setSearch] = useState('')
+
+  const getInitialSearch = () => {
+    const params = new URLSearchParams(window.location.search)
+    return params.get('search') || ''
+  }
+
+  const getInitialPage = () => {
+    const params = new URLSearchParams(window.location.search)
+    const pageParam = params.get('page')
+    return pageParam ? parseInt(pageParam, 10) : 1
+  }
+
+  const [page, setPage] = useState(getInitialPage())
+  const [search, setSearch] = useState(getInitialSearch())
   const [selectedCard, setSelectedCard] = useState<AppData | null>(null)
 
   const perPage = 12
@@ -48,6 +60,24 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
     loadApps()
   }, [])
+
+  useEffect(() => {
+    const params = new URLSearchParams()
+
+    if (search) {
+      params.set('search', search)
+    }
+
+    if (page > 1) {
+      params.set('page', page.toString())
+    }
+
+    const newUrl = params.toString()
+      ? `${window.location.pathname}?${params.toString()}`
+      : window.location.pathname
+
+    window.history.replaceState({}, '', newUrl)
+  }, [search, page])
 
   useEffect(() => {
     setPage(1)
