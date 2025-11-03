@@ -9,7 +9,7 @@ Uma aplicação React moderna para explorar e descobrir ferramentas integradas �
 
 ## 📱 Demo
 
-🌐 **[Ver Demo ao Vivo](http://localhost:4000)** (quando rodando localmente)
+🌐 **[Ver Demo ao Vivo](https://pluga-teste.vercel.app/)** 
 
 ## 📸 Interface da Aplicação
 
@@ -118,7 +118,6 @@ npm install
 npm run dev
 ```
 
-A aplicação estará disponível em [https://pluga-teste-ggq874twb-vixemaris-projects.vercel.app/](https://pluga-teste.vercel.app/)
 
 ### 4. Execute os testes
 
