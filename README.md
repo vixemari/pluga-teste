@@ -11,6 +11,24 @@ Uma aplicação React moderna para explorar e descobrir ferramentas integradas �
 
 🌐 **[Ver Demo ao Vivo](http://localhost:4000)** (quando rodando localmente)
 
+## 📸 Interface da Aplicação
+
+### 🖥️ **Tela Principal**
+<img width="1419" height="925" alt="image" src="https://github.com/user-attachments/assets/82e324c4-3bac-4399-8d1f-022566adaa82" />
+*Vista geral da aplicação com grid de apps, busca e paginação*
+
+### 📱 **Responsividade Mobile**
+<img width="383" height="825" alt="image" src="https://github.com/user-attachments/assets/7c5db243-a11a-4f80-9578-78448b10f123" /><br/>
+*Layout adaptado para dispositivos móveis*
+
+### ⏳ **Loading States**
+<img width="1426" height="927" alt="image" src="https://github.com/user-attachments/assets/2b647d1f-4abe-4fa7-b5bf-a42c611fe030" />
+*Skeleton components durante carregamento para melhor UX*
+
+### 🪟 **Modal de Detalhes**
+<img width="1426" height="927" alt="image" src="https://github.com/user-attachments/assets/5d826457-b882-48e1-bcf9-d50c13ea7046" />
+*Modal exibindo informações detalhadas e histórico de visualizações*
+
 ### 🎯 Funcionalidades Principais
 
 - **🔍 Busca Inteligente**: Search com debounce para otimização de performance
@@ -127,7 +145,7 @@ npm run build
 | `npm run lint:fix` | Corrige problemas automaticamente             |
 | `npm run format`   | Formata código com Prettier                   |
 
-## 🧪 Testes (Diferencial)
+## 🧪 Testes
 
 O projeto inclui **6 testes básicos** para demonstrar conhecimento em testing:
 
