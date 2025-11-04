@@ -76,8 +76,6 @@ https://pluga-teste.vercel.app/?search=trello&page=3 # Busca "Trello" na página
 - ✅ **Nova busca**: Reseta para página 1 automaticamente
 - ✅ **URL limpa**: Volta ao estado inicial quando sem filtros
 
-> 📚 **[Documentação completa sobre Query Params](./QUERY_PARAMS.md)**
-
 ## � Tecnologias Utilizadas
 
 ### Core
@@ -188,12 +186,11 @@ npm run build
 
 ## 🧪 Testes
 
-O projeto inclui **9 testes** para demonstrar conhecimento em testing:
+O projeto inclui **6 testes** para demonstrar conhecimento em testing:
 
 - ✅ **AppCard**: Renderização e interações do usuário
 - ✅ **Search**: Input funcionando corretamente
 - ✅ **API**: Integração básica com serviços externos
-- ✅ **URL Params**: Persistência de estado na URL
 
 ```bash
 # Executar testes
@@ -206,13 +203,12 @@ npm run test:run
 **Resultados**:
 
 ```
-✓ src/test/urlParams.test.ts (3 tests)    # 🆕 Query Params
 ✓ src/test/appService.test.ts (1 test)    # API Service
 ✓ src/test/Search.test.tsx (3 tests)       # Search Component
 ✓ src/test/AppCard.test.tsx (2 tests)      # Card Component
 
-Test Files  4 passed (4)
-Tests       9 passed (9)
+Test Files  3 passed (4)
+Tests       6 passed (9)
 ```
 
 > **Nota**: Testes foram mantidos simples e focados no essencial para demonstrar capacidade de aprendizado em testing, sem complexidade desnecessária.
