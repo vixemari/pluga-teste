@@ -125,8 +125,7 @@ src/
 ├── test/               # Suíte de testes (9 testes)
 │   ├── AppCard.test.tsx
 │   ├── Search.test.tsx
-│   ├── appService.test.ts
-│   ├── urlParams.test.ts  # 🆕 Testes de Query Params
+│   ├── appService.test.ts│  
 │   └── setup.ts
 └── docs/               # Documentação adicional
     ├── QUERY_PARAMS.md    # 🆕 Doc de URL persistence
@@ -207,8 +206,8 @@ npm run test:run
 ✓ src/test/Search.test.tsx (3 tests)       # Search Component
 ✓ src/test/AppCard.test.tsx (2 tests)      # Card Component
 
-Test Files  3 passed (4)
-Tests       6 passed (9)
+Test Files  3 passed (3)
+Tests       6 passed (6)
 ```
 
 > **Nota**: Testes foram mantidos simples e focados no essencial para demonstrar capacidade de aprendizado em testing, sem complexidade desnecessária.
@@ -247,7 +246,7 @@ Configuração strict habilitada para máxima type safety:
 - ✅ **Funcionalidades Core**: Busca, paginação, modal
 - ✅ **Query Params**: Persistência de estado na URL (compartilhável!)
 - ✅ **Responsividade**: Mobile, tablet, desktop
-- ✅ **Testes**: 9 testes incluindo URL params
+- ✅ **Testes**: 6 testes 
 - ✅ **Qualidade**: 0 erros ESLint, TypeScript rigoroso
 - ✅ **Performance**: Loading states, debounce, otimizações
 - ✅ **Deploy**: Vercel com CI/CD automático
