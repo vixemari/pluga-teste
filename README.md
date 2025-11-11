@@ -127,9 +127,7 @@ src/
 │   ├── Search.test.tsx
 │   ├── appService.test.ts│  
 │   └── setup.ts
-└── docs/               # Documentação adicional
-    ├── QUERY_PARAMS.md    # 🆕 Doc de URL persistence
-    └── images/            # Screenshots da interface
+
 ```
 
 ## 🛠️ Instalação e Configuração
