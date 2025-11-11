@@ -122,7 +122,7 @@ src/
 │   └── app.ts          # Interfaces TypeScript
 ├── Pages/
 │   └── Home.tsx        # Página principal
-├── test/               # Suíte de testes (9 testes)
+├── test/               # Suíte de testes (6 testes)
 │   ├── AppCard.test.tsx
 │   ├── Search.test.tsx
 │   ├── appService.test.ts│  
